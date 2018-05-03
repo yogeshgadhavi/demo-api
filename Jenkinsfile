@@ -3,12 +3,12 @@ pipeline {
   stages {
     stage('Unit Test') {
       steps {
-        sh 'mvn clean test'
+        bat 'mvn clean test'
       }
     }
     stage('Deploy Standalone') {
       steps {
-        sh 'mvn deploy -P standalone'
+        bat 'mvn deploy -P standalone'
       }
     }
     stage('Deploy ARM') {
@@ -16,7 +16,7 @@ pipeline {
         ANYPOINT_CREDENTIALS = credentials('anypoint.credentials')
       }
       steps {
-        sh 'mvn deploy -P arm -Darm.target.name=apprhel74mupoc08i -Danypoint.username=bimehta -Danypoint.password=Mel2018a'
+        bat 'mvn deploy -P arm -Darm.target.name=apprhel74mupoc08i -Danypoint.username=bimehta -Danypoint.password=Mel2018a'
       }
     }
     stage('Deploy CloudHub') {
@@ -24,7 +24,7 @@ pipeline {
         ANYPOINT_CREDENTIALS = credentials('anypoint.credentials')
       }
       steps {
-        sh 'mvn deploy -P cloudhub -Dmule.version=3.9.0 -Danypoint.username=bimehta -Danypoint.password=Mel2018a'
+        bat 'mvn deploy -P cloudhub -Dmule.version=3.9.0 -Danypoint.username=bimehta -Danypoint.password=Mel2018a'
       }
     }
   }
