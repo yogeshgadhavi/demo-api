@@ -1,12 +1,6 @@
 pipeline {
   agent any
-  stages {
-    stage('Unit Test') {
-      steps {
-        bat 'mvn clean test'
-      }
-    }
-    stage('Deploy Standalone') {
+   stage('Deploy Standalone') {
       steps {
         bat 'mvn deploy -P standalone'
       }
