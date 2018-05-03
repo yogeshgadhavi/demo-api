@@ -1,6 +1,7 @@
 pipeline {
   agent any
-   stage('Deploy Standalone') {
+  stages {
+    stage('Deploy Standalone') {
       steps {
         bat 'mvn deploy -P standalone'
       }
